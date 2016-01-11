@@ -3,4 +3,5 @@ module.exports = {
   delete: require('./lib/delete.js'),
   edit: require('./lib/edit.js'),
   back: require('./lib/back.js'),
+  check: require('./lib/check.js')
 };

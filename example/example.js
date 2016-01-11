@@ -15,6 +15,7 @@ function render() {
     buttons.create(h, {href: '/example', onClick: onClick}),
     buttons.delete(h, {onClick: onClick}),
     buttons.back(h, {onClick: onClick}),
-    buttons.edit(h, {onClick: onClick})
+    buttons.edit(h, {onClick: onClick}),
+    buttons.check(h, {href: '/check', onClick: onClick})
   ]);
 }
