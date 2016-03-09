@@ -2,6 +2,7 @@
   "name": "vdom-buttons",
   "description": "A few buttons",
   "main": "index.js",
+  "style": "vdom-buttons.css",
   "version": "0.0.4",
   "keywords": [
     "virtual-dom",
