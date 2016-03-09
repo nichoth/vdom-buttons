@@ -1,9 +1,8 @@
 # vdom buttons
 
-A few buttons
+A few buttons, virtual-dom style.
 
-[demo](https://7811c3c88cbd14e040291953617e1517bec9bad6.htmlb.in)
-
+[demo](http://demos.nichoth.com/vdom-buttons)
 
 ## install
 
@@ -15,22 +14,24 @@ A few buttons
 var vdom = require('virtual-dom');
 var h = vdom.h;
 var buttons = require('vdom-buttons');
+// or require one thing
+var edit = require('vdom-buttons/lib/edit');
 
 var loop = require('main-loop')( {}, render, vdom );
 document.getElementById('content').appendChild(loop.target);
 
-function onClick(ev) {
-  ev.preventDefault();
-  console.log('click', ev.target.href);
-}
-
 function render() {
-  return h('div', [
-    buttons.create(h, {href: '/example', onClick: onClick}),
-    buttons.delete(h, {onClick: onClick}),
-    buttons.back(h, {onClick: onClick}),
-    buttons.edit(h, {onClick: onClick}),
-    buttons.check(h, { href: '/check', onClick: onClick })
-  ]);
+  return h('div', Object.keys(buttons).map(k => {
+    // use normal hyperscript attributes
+    return buttons[k](h, {
+      onclick: ev => {
+        ev.preventDefault();
+        console.log('click', k);
+      },
+      style: {
+        marginRight: '1em'
+      }
+    });
+  }));
 }
 ```

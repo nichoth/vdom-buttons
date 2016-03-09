@@ -1,0 +1,17 @@
+.vdom-button {
+  display: inline-block;
+  background-color: transparent;
+  background-size: contain;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+.vdom-button.edit, .vdom-button.check {
+  opacity: 0.6;
+}
+
+.vdom-button:hover {
+  opacity: 0.4;
+}

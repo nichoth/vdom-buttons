@@ -5,17 +5,15 @@ var buttons = require('../');
 var loop = require('main-loop')( {}, render, vdom );
 document.getElementById('content').appendChild(loop.target);
 
-function onClick(ev) {
-  ev.preventDefault();
-  console.log('click', ev.target.href);
-}
 
 function render() {
-  return h('div', [
-    buttons.create(h, {href: '/example', onClick: onClick}),
-    buttons.delete(h, {onClick: onClick}),
-    buttons.back(h, {onClick: onClick}),
-    buttons.edit(h, {onClick: onClick}),
-    buttons.check(h, {href: '/check', onClick: onClick})
-  ]);
+  return h('div', Object.keys(buttons).map(k => {
+    // use normal hyperscript attributes
+    return buttons[k](h, {
+      onclick: ev => console.log('click', k),
+      style: {
+        marginRight: '1em'
+      }
+    });
+  }));
 }

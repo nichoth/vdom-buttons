@@ -17,12 +17,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -d example/example.js > example/bundle.js",
+    "build": "cp vdom-buttons.css example/style.css && browserify -d example/example.js > example/bundle.js",
     "watch": "watchify example/example.js -o example/bundle.js -dv",
     "dev": "npm run watch & npm run server",
     "postversion": "git push && git push --tags",
-    "server": "node server.js",
-    "demo": "browserify example/example.js > example/bundle.js && html-inline example/index.html | curl -sT- https://htmlb.in"
+    "server": "node server.js"
   },
   "author": "Nick Thomas <nichoth@gmail.com>",
   "repository": {
@@ -33,8 +32,8 @@
   "peerDependencies": {},
   "devDependencies": {
     "ecstatic": "^1.3.1",
-    "virtual-dom": "^2.1.1",
-    "main-loop": "^3.2.0"
+    "main-loop": "^3.2.0",
+    "virtual-dom": "^2.1.1"
   },
   "dependencies": {
     "xtend": "^4.0.1"
