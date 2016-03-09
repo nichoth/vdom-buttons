@@ -3,7 +3,7 @@
   "description": "A few buttons",
   "main": "index.js",
   "style": "vdom-buttons.css",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "keywords": [
     "virtual-dom",
     "mercury",
